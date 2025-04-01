@@ -16,4 +16,16 @@ Pushing the image to the repository.
 docker push materialsvirtuallab/matml
 ```
 
+# Running code
 
+Assuming you have your script `script.py` in the current directory, you can run it using:
+
+```docker
+docker run --name test -v .:/work -t materialsvirtuallab/matml python /work/script.py
+```
+
+If you need to get a file out of your docker container, use:
+
+```docker
+docker cp test:<filename> .
+```
