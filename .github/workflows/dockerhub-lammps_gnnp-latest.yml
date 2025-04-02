@@ -1,10 +1,10 @@
-name: Docker - lammps - latest-ml
+name: Docker - lammps_gnnp - latest
 
 on:
   push:
     branches: [ main ]
     paths:
-      - docker/Dockerfile.lammps.ml
+      - docker/Dockerfile.lammps_gnnp
   workflow_dispatch:
     inputs:
       task:
@@ -32,8 +32,8 @@ jobs:
         with:
           platforms: linux/amd64,linux/arm64
           context: .
-          file: docker/Dockerfile.lammps.ml
+          file: docker/Dockerfile.lammps_gnnp
           push: true
-          tags: materialsvirtuallab/lammps:latest-ml
+          tags: materialsvirtuallab/lammps_gnnp:latest
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
