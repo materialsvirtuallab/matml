@@ -8,6 +8,7 @@ RUN apt-get update -y && apt-get install -y \
     g++ \
     gcc \
     gfortran \
+    openmpi-bin \
     python3 \
     liblapack3 \
     python3-venv \
@@ -21,15 +22,19 @@ RUN apt-get update -y && apt-get install -y \
     libexpat1 \
     libfftw3-double3 \
     libgcc-s1 \
+    libgomp1 \
     libhwloc15 \
     libltdl7 \
+    libopenmpi3 \
     libpng16-16 \
+    libpython3.8 \
     libstdc++6 \
     libudev1 \
     libvoro++1 \
     libzstd1 \
     zlib1g \
     libreadline8 \
+    mpi-default-bin \
     python3-dev \
     python3-pip \
     python3-pkg-resources \
@@ -39,7 +44,8 @@ RUN apt-get update -y && apt-get install -y \
     vim-nox \
     valgrind \
     gdb \
-    zstd
+    zstd \
+    libopenmpi-dev
 
 RUN mkdir -p code && \
     cd code && \
