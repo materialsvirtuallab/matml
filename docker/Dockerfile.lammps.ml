@@ -1,5 +1,5 @@
 # We start from a uv image to make life easier.
-FROM ghcr.io/astral-sh/uv:python3.12-bookworm
+FROM ghcr.io/astral-sh/uv:python3.12-bookworm-slim
 
 RUN apt-get update -y && apt-get install -y \
     build-essential \
@@ -9,7 +9,37 @@ RUN apt-get update -y && apt-get install -y \
     gcc \
     gfortran \
     python3 \
-    python3-dev
+    liblapack3 \
+    python3-venv \
+    libpython3.6 \
+    hdf5-tools \
+    ffmpeg \
+    less \
+    libc6 \
+    libevent-2.1-7 \
+    libevent-pthreads-2.1-7 \
+    libexpat1 \
+    libfftw3-double3 \
+    libgcc-s1 \
+    libhwloc15 \
+    libltdl7 \
+    libpng16-16 \
+    libstdc++6 \
+    libudev1 \
+    libvoro++1 \
+    libzstd1 \
+    zlib1g \
+    libreadline8 \
+    python3-dev \
+    python3-pip \
+    python3-pkg-resources \
+    python3-setuptools \
+    rsync \
+    ssh \
+    vim-nox \
+    valgrind \
+    gdb \
+    zstd
 
 RUN mkdir -p code && \
     cd code && \
