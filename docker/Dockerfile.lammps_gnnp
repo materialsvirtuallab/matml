@@ -17,6 +17,7 @@ RUN apt-get update -y && apt-get install -y \
     python3-setuptools \
     rsync \
     ssh \
+    clang-format \
     libopenmpi-dev
 
 RUN mkdir -p code && \
