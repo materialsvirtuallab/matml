@@ -1,5 +1,5 @@
 # We start from a uv image to make life easier.
-FROM materialsvirtuallab/ml_lammps
+FROM materialsvirtuallab/lammps:latest-ml
 
 ENV DGLBACKEND=pytorch
 
