@@ -16,6 +16,31 @@ if TYPE_CHECKING:
     from invoke import Context
 
 @task
+def generate_workflows(ctx: Context) -> None:
+    with open("ci_workflow_template.yml", "rt") as f:
+        template = f.read()
+        for path in glob.glob("docker/Dockerfile.*"):
+            toks = Path(path).name.split(".")
+            name = toks[1]
+            tag = "latest"
+            if len(toks) == 3:
+                tag = f"latest-{toks[2]}"
+            with open(f".github/workflows/dockerhub-{name}-{tag}.yml", "wt") as f:
+                f.write(template.format(name=name, tag=tag, path=path))
+
+
+@task
+def publish_all(ctx: Context) -> None:
+    """
+    Publish all.
+
+    Args:
+        ctx (Context): The context.
+    """
+
+
+
+@task
 def publish(ctx: Context, fname) -> None:
     toks = Path(fname).name.split(".")
     name = toks[1]

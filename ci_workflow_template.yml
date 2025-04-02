@@ -1,8 +1,10 @@
-name: Docker Hub Push
+name: Docker Hub Push - {name}
 
 on:
   push:
     branches: [ main ]
+    paths:
+      - {path}
 
 jobs:
   dockerhub:
@@ -25,8 +27,8 @@ jobs:
         with:
           platforms: linux/amd64,linux/arm64
           context: .
-          file: docker/Dockerfile.lammps.ml
+          file: {path}
           push: true
-          tags: materialsvirtuallab/lammps:latest-ml
+          tags: materialsvirtuallab/{name}:{tag}
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
