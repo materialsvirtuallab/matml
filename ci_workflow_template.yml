@@ -1,10 +1,17 @@
-name: Docker Hub Push - {name}
+name: DockerHub Build and Push - {name}
 
 on:
   push:
     branches: [ main ]
     paths:
       - {path}
+  workflow_dispatch:
+    inputs:
+      task:
+        type: choice
+        options: [build]
+        default: dockerhub
+        description: Run build and push.
 
 jobs:
   dockerhub:

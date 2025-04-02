@@ -1,10 +1,17 @@
-name: Docker Hub Push - matgl
+name: DockerHub Build and Push - matgl
 
 on:
   push:
     branches: [ main ]
     paths:
       - docker/Dockerfile.matgl.cuda
+  workflow_dispatch:
+    inputs:
+      task:
+        type: choice
+        options: [build]
+        default: dockerhub
+        description: Run build and push.
 
 jobs:
   dockerhub:

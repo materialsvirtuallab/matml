@@ -1,10 +1,17 @@
-name: Docker Hub Push - lammps
+name: DockerHub Build and Push - lammps
 
 on:
   push:
     branches: [ main ]
     paths:
       - docker/Dockerfile.lammps.ml
+  workflow_dispatch:
+    inputs:
+      task:
+        type: choice
+        options: [build]
+        default: dockerhub
+        description: Run build and push.
 
 jobs:
   dockerhub:

@@ -1,10 +1,17 @@
-name: Docker Hub Push - matml
+name: DockerHub Build and Push - matml
 
 on:
   push:
     branches: [ main ]
     paths:
       - docker/Dockerfile.matml
+  workflow_dispatch:
+    inputs:
+      task:
+        type: choice
+        options: [build]
+        default: dockerhub
+        description: Run build and push.
 
 jobs:
   dockerhub:
