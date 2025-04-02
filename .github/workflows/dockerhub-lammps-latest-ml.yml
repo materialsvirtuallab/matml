@@ -1,4 +1,4 @@
-name: DockerHub - lammps - multiplatform
+name: Docker - lammps - latest-ml
 
 on:
   push:
@@ -27,8 +27,6 @@ jobs:
         uses: docker/setup-qemu-action@v3
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
-      - name: Info
-        run: ls -l
       - name: Build and push
         uses: docker/build-push-action@v6
         with:
