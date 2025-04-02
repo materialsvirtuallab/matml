@@ -6,45 +6,17 @@ RUN apt-get update -y && apt-get install -y \
     git \
     cmake \
     g++ \
-    gcc \
-    gfortran \
     openmpi-bin \
     python3 \
-    liblapack3 \
     python3-venv \
-    libpython3.6 \
     hdf5-tools \
     ffmpeg \
-    less \
-    libc6 \
-    libevent-2.1-7 \
-    libevent-pthreads-2.1-7 \
-    libexpat1 \
-    libfftw3-double3 \
-    libgcc-s1 \
-    libgomp1 \
-    libhwloc15 \
-    libltdl7 \
-    libopenmpi3 \
-    libpng16-16 \
-    libpython3.8 \
-    libstdc++6 \
-    libudev1 \
-    libvoro++1 \
-    libzstd1 \
-    zlib1g \
-    libreadline8 \
-    mpi-default-bin \
     python3-dev \
     python3-pip \
     python3-pkg-resources \
     python3-setuptools \
     rsync \
     ssh \
-    vim-nox \
-    valgrind \
-    gdb \
-    zstd \
     libopenmpi-dev
 
 RUN mkdir -p code && \
