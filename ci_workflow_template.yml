@@ -21,8 +21,8 @@ jobs:
       - name: Login to DockerHub
         uses: docker/login-action@v3
         with:
-          username: ${{ secrets.DOCKER_HUB_USER }}
-          password: ${{ secrets.DOCKER_HUB_ACCESS_TOKEN }}
+          username: ${{{{ secrets.DOCKER_HUB_USER }}}}
+          password: ${{{{ secrets.DOCKER_HUB_ACCESS_TOKEN }}}}
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
       - name: Set up Docker Buildx
@@ -38,4 +38,4 @@ jobs:
           push: true
           tags: materialsvirtuallab/{name}:{tag}
       - name: Image digest
-        run: echo ${{ steps.docker_build.outputs.digest }}
+        run: echo ${{{{ steps.docker_build.outputs.digest }}}}
