@@ -4,21 +4,7 @@ This repository provides tools for managing the MatML ecosystem, including build
 
 # Available Docker Images
 
-materialsvirtual
-
-# Docker File
-
-To build an image,
-
-```docker
-docker build -t materialsvirtuallab/matml -f docker/Dockerfile .
-```
-
-Pushing the image to the repository.
-
-```docker
-docker push materialsvirtuallab/matml
-```
+All docker images are at the [Materials Virtual Lab Docker Repository].
 
 # Running code
 
@@ -33,3 +19,5 @@ If you need to get a file out of your docker container, use:
 ```docker
 docker cp test:<filename> .
 ```
+
+[Materials Virtual Lab Docker Repository]: https://hub.docker.com/orgs/materialsvirtuallab/repositories
