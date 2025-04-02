@@ -1,10 +1,10 @@
-name: DockerHub Build and Push - matgl
+name: DockerHub Build and Push - matml
 
 on:
   push:
     branches: [ main ]
     paths:
-      - docker/Dockerfile.matgl
+      - docker/Dockerfile.matml
   workflow_dispatch:
     inputs:
       task:
@@ -15,7 +15,7 @@ on:
 
 jobs:
   dockerhub:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04-arm
     steps:
       - uses: actions/checkout@v4
       - name: Login to DockerHub
@@ -32,10 +32,9 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v6
         with:
-          platforms: linux/amd64,linux/arm64
           context: .
-          file: docker/Dockerfile.matgl
+          file: docker/Dockerfile.matml
           push: true
-          tags: materialsvirtuallab/matgl:latest
+          tags: materialsvirtuallab/matml:latest-arm64
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}

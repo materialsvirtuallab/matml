@@ -20,13 +20,15 @@ def generate_workflows(ctx: Context) -> None:
     with open("ci_workflow_template.yml", "rt") as f:
         template = f.read()
         for path in glob.glob("docker/Dockerfile.*"):
-            toks = Path(path).name.split(".")
-            name = toks[1]
-            tag = "latest"
-            if len(toks) == 3:
-                tag = f"latest-{toks[2]}"
-            with open(f".github/workflows/dockerhub-{name}-{tag}.yml", "wt") as f:
-                f.write(template.format(name=name, tag=tag, path=path))
+            for platform in ["amd64", "arm64"]:
+                os = "ubuntu-24.04-arm" if platform == "arm64" else "ubuntu-latest"
+                toks = Path(path).name.split(".")
+                name = toks[1]
+                tag = f"latest-{platform}"
+                if len(toks) == 3:
+                    tag = f"latest-{toks[2]}-{platform}"
+                with open(f".github/workflows/dockerhub-{name}-{tag}.yml", "wt") as f:
+                    f.write(template.format(name=name, tag=tag, path=path, os=os))
 
 
 @task

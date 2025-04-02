@@ -32,10 +32,9 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v6
         with:
-          platforms: linux/amd64,linux/arm64
           context: .
           file: docker/Dockerfile.lammps.ml
           push: true
-          tags: materialsvirtuallab/lammps:latest-ml
+          tags: materialsvirtuallab/lammps:latest-ml-amd64
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
