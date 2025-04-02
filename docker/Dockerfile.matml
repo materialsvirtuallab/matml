@@ -1,0 +1,6 @@
+# We start from a uv image to make life easier.
+FROM materialsvirtuallab/ml_lammps
+
+ENV DGLBACKEND=pytorch
+
+RUN uv pip install matgl matcalc matpes --system
