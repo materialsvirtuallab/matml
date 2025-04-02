@@ -5,7 +5,7 @@ on:
     branches: [ main ]
 
 jobs:
-  test:
+  dockerhub:
     runs-on: ubuntu-latest
     steps:
       - name: Login to DockerHub
@@ -17,13 +17,14 @@ jobs:
         uses: docker/setup-qemu-action@v3
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
-
+      - name: Info
+        run: ls -l
       - name: Build and push
         uses: docker/build-push-action@v6
         with:
           platforms: linux/amd64,linux/arm64
-          context: ./
-          file: ./docker/Dockerfile.lammps.ml
+          context: .
+          file: docker/Dockerfile.lammps.ml
           push: true
           tags: materialsvirtuallab/lammps:latest-ml
       - name: Image digest
