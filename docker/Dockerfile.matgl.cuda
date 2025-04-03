@@ -1,8 +1,8 @@
 FROM ghcr.io/astral-sh/uv:python3.12-bookworm
 
-RUN uv pip install matgl --system
 RUN uv pip install torch==2.2.0 --index-url https://download.pytorch.org/whl/cu121 --system
 RUN uv pip install dgl -f https://data.dgl.ai/wheels/cu121/repo.html --system
 RUN uv pip install dglgo -f https://data.dgl.ai/wheels-test/repo.html --system
+RUN uv pip install matgl --system
 
 ENV DGLBACKEND=pytorch
