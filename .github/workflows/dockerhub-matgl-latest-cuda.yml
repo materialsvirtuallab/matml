@@ -30,7 +30,7 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v6
         with:
-          platforms: linux/arm64
+          platforms: linux/amd64
           context: .
           file: docker/Dockerfile.matgl.cuda
           push: true
