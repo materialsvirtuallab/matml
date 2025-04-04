@@ -1,0 +1,8 @@
+*.md
+*.toml
+*.py
+.python-version
+*.yml
+uv.lock
+.gitignore
+.github/*
