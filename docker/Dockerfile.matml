@@ -3,4 +3,4 @@ FROM materialsvirtuallab/lammps_gnnp:latest
 
 ENV DGLBACKEND=pytorch
 
-RUN uv pip install matgl matcalc matpes --system
+RUN uv pip install matgl>=1.2.5 matcalc>=0.3.3 matpes --system
