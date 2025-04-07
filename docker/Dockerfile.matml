@@ -4,5 +4,5 @@ FROM materialsvirtuallab/lammps_gnnp:latest
 ENV DGLBACKEND=pytorch
 
 RUN uv pip install --system dgl -f https://data.dgl.ai/wheels/torch-2.4/repo.html
-RUN uv pip install --system torchdata==0.8.0 torch==2.4.0
+RUN uv pip install --system torchdata<=0.8.0 torch<=2.4.0
 RUN uv pip install matgl>=1.2.6 matcalc>=0.3.3 matpes --system
