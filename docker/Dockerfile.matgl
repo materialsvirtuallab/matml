@@ -3,5 +3,5 @@ FROM ghcr.io/astral-sh/uv:python3.12-bookworm
 ENV DGLBACKEND=pytorch
 
 RUN uv pip install --system dgl -f https://data.dgl.ai/wheels/torch-2.4/repo.html
-RUN uv pip install --system torchdata<=0.8.0 torch<=2.4.0
+RUN uv pip install --system "torchdata<=0.8.0" "torch<=2.4.0"
 RUN uv pip install --system matgl>=1.2.6
